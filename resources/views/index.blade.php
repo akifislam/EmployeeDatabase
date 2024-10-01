@@ -20,6 +20,7 @@
     <th>Phone</th>
     <th>Email</th>
     <th>Address</th>
+    <th>Details</th>
 
         @foreach($employees as $item)
         <tr>
@@ -31,6 +32,7 @@
             <td>{{$item->mobile_no}}</td>
             <td>{{$item->email}}</td>
             <td>{{$item->address}}</td>
+            <td><a href="{{route('employee.show', $item->id)}}">Details</a></td>
         </tr>
         @endforeach
 

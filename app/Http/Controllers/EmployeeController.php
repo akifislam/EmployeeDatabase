@@ -38,13 +38,12 @@ class EmployeeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Employee $eid)
+    public function show($eid)
     {
-        return "Working with $eid";
-//        $employee = Employee::find($employee);
-//
-//        return view('show')
-//            ->with('employee',$employee);
+        $employee = Employee::find($eid);
+
+        return view('show')
+            ->with('employee',$employee);
     }
 
     /**
