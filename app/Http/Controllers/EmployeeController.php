@@ -32,6 +32,18 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
+
+        //Validate
+        $request->validate([
+            'name' => 'required|max:255|string|regex:/^[a-zA-Z\s]+$/',
+            'email' => 'required|email',
+            'mobile_no' => 'required|numeric',
+            'job_title' => 'required',
+            'salary' => 'required|numeric',
+            'address' => 'required',
+            'joining_date' => 'required|date',
+        ]);
+
         $employee = new Employee();
         $employee->name = $request->name;
         $employee->email = $request->email;
@@ -43,7 +55,7 @@ class EmployeeController extends Controller
         
         $employee->save();
 
-        return redirect()->route('employee.index');
+        return redirect()->route('employee.show',$employee->id);
     }
 
     /**
