@@ -18,13 +18,13 @@ class EmployeeController extends Controller
             ->with('employees',$employees);
     }
 
-    
+
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        //
+        return view('newbook');
     }
 
     /**
@@ -32,7 +32,18 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $employee = new Employee();
+        $employee->name = $request->name;
+        $employee->email = $request->email;
+        $employee->mobile_no = $request->mobile_no;
+        $employee->job_title = $request->job_title;
+        $employee->salary = $request->salary;
+        $employee->address = $request->address;
+        $employee->joining_date = $request->joining_date;
+        
+        $employee->save();
+
+        return redirect()->route('employee.index');
     }
 
     /**

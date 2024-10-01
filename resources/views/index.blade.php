@@ -3,6 +3,9 @@
 @section('page_content')
 
 <h1>Employee Database</h1>
+<p class="text-end">
+    <a class="btn btn-primary" href="{{route('employee.create')}}">New Book</a>
+</p>
 <table class="table">
     <th>ID</th>
     <th>Name</th>

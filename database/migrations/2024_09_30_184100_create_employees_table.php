@@ -12,7 +12,7 @@ return new class extends Migration
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
             $table->string('name',255);
-            $table->string('job_title',100);
+            $table->string('job_title',100)->nullable();
             $table->float('salary',2);
             $table->string('email',255)->nullable()->unique();
             $table->date("joining_date");

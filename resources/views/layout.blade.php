@@ -12,5 +12,6 @@
 <body>
     @yield('page_content')
     @yield('employee_content')
+    @yield('create_employee')
 </body>
 </html>
