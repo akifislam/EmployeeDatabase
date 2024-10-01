@@ -88,8 +88,12 @@ class EmployeeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Employee $employee)
+    public function destroy(Request $request,$id)
     {
+        $employee = Employee::find($id);
+        $employee->delete();
+
+        return redirect()->route('employee.index');
 
     }
 }

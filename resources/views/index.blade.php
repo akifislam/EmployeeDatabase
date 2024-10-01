@@ -27,7 +27,22 @@
             <td>{{$item->mobile_no}}</td>
             <td>{{$item->email}}</td>
             <td>{{$item->address}}</td>
-            <td><a href="{{route('employee.show', $item->id)}}">Details</a></td>
+            <td>
+               <a href="{{route('employee.show', $item->id)}}">
+                <button class="btn btn-primary">    
+                
+                    Details
+                </button>
+                <a/>
+           
+
+                <form method = 'POST' action="{{route('employee.delete',$item->id)}}" >
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </td>
+         
         </tr>
         @endforeach
 
